@@ -48,19 +48,19 @@ fun main() {
                     var s = (opponentChoice.code - 64) + 2
                     if (s > 3) s %= 3
                     score += s
-                    println("need to lose, opponent chose $opponentChoice, picking $s")
+//                    println("need to lose, opponent chose $opponentChoice, picking $s")
                 }
                 'Y' -> { // must draw
                     score += 3
                     score += opponentChoice.code - 64
-                    println("need to draw, opponent chose $opponentChoice, picking ${opponentChoice.code - 64}")
+//                    println("need to draw, opponent chose $opponentChoice, picking ${opponentChoice.code - 64}")
                 }
                 'Z' -> { // must win
                     score += 6
                     var s = (((opponentChoice.code - 64) + 1))
                     if (s > 3) s -= 3
                     score += s
-                    println("need to win, opponent chose $opponentChoice, picking $s")
+//                    println("need to win, opponent chose $opponentChoice, picking $s")
                 }
                 else -> throw IllegalArgumentException()
             }
@@ -69,6 +69,6 @@ fun main() {
         return score
     }
 
-    println("Part 2 answer: ${part2()}")
     println("Part 1 answer: ${part1()}")
+    println("Part 2 answer: ${part2()}")
 }
