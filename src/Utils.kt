@@ -14,3 +14,12 @@ fun readInput(name: String) = File("src", "$name.txt")
 fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
     .toString(16)
     .padStart(32, '0')
+
+/**
+ * swap two elements of an IntArray at index i and j
+ */
+fun IntArray.swap(i: Int, j: Int) {
+    this[i] = this[i] + this[j]
+    this[j] = this[i] - this[j]
+    this[i] = this[i] - this[j]
+}
