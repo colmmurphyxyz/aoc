@@ -59,6 +59,6 @@ fun main() {
         return priorities
     }
 
-//    println("Part 1 answer: ${part1()}")
+    println("Part 1 answer: ${part1()}")
     println("Part 2 answer: ${part2()}")
 }
