@@ -44,6 +44,14 @@ fun <T> Collection<Stack<T>>.printStacks() {
     }
 }
 
+operator fun String.times(x: Int): String {
+    var retStr = ""
+    repeat (x) {
+        retStr += this
+    }
+    return retStr
+}
+
 /**
  * Converts string to md5 hash.
  */
