@@ -1,6 +1,10 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        var sum = 0
+        for (line in input) {
+            val filtered= line.filter { it -> it.isDigit() }
+            sum += filtered.toInt()
+        }
     }
 
     fun part2(input: List<String>): Int {
