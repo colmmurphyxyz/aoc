@@ -97,8 +97,8 @@ fun main() {
     val testInput = readInput("Day03_test")
     val input = readInput("Day03")
 
-//    println("Part 1 Test: ${part1(testInput)}")
-//    println("Part 1: ${part1(input)}")
+    println("Part 1 Test: ${part1(testInput)}")
+    println("Part 1: ${part1(input)}")
 
     println("Part 2 Test: ${part2(testInput)}")
     println("Part 2: ${part2(input)}")
