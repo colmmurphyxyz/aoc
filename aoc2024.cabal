@@ -71,6 +71,7 @@ executable aoc2024
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.13.0.0,
+        containers,
         filepath
 
     -- Directories containing source files.
