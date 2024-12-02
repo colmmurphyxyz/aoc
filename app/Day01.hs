@@ -1,4 +1,4 @@
-module Day01 where
+module Day01 (day01, part1, part2, parseInput) where
 
 import Prelude
 
