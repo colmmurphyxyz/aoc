@@ -3,6 +3,7 @@ import System.Environment (getArgs)
 import Text.Read (readMaybe)
 
 import Day01 (day01)
+import Day02 (day02)
 
 main :: IO ()
 main = do
@@ -12,5 +13,5 @@ main = do
         Nothing -> error "Bad Input"
         Just n -> case n of
             1 -> day01
-            2 -> print "two"
+            2 -> day02
             _ -> error "Invalid input arguments"

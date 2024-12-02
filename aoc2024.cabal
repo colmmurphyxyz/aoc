@@ -55,10 +55,10 @@ common warnings
 
 library
     hs-source-dirs: app
-    main-is: Main.hs
     exposed-modules:
         Util,
-        Day01
+        Day01,
+        Day02
     build-depends:
         base ^>=4.13.0.0,
         containers,
@@ -74,8 +74,9 @@ executable aoc2024
 
     -- Modules included in this executable, other than Main.
     other-modules:
-        Util
-        Day01
+        Util,
+        Day01,
+        Day02
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -97,7 +98,8 @@ test-suite aoc2024-test
     hs-source-dirs: test
     main-is: Spec.hs
     other-modules:
-        Day01Spec
+        Day01Spec,
+        Day02Spec
     build-depends:
         base ^>=4.13.0.0,
         hspec,
