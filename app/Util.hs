@@ -1,6 +1,6 @@
-module Util (getDataFileName) where
+module Util (getInput) where
 
 import System.FilePath
 
-getDataFileName :: String -> FilePath
-getDataFileName s = "data/" ++ s
+getInput :: FilePath -> IO [String]
+getInput path = lines <$> readFile path

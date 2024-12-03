@@ -58,11 +58,14 @@ library
     exposed-modules:
         Util,
         Day01,
-        Day02
+        Day02,
+        Day03
     build-depends:
         base ^>=4.13.0.0,
         containers,
-        filepath
+        filepath,
+        regex-base,
+        regex-posix
     default-language: Haskell2010
 
 executable aoc2024
@@ -76,7 +79,8 @@ executable aoc2024
     other-modules:
         Util,
         Day01,
-        Day02
+        Day02,
+        Day03
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -85,7 +89,9 @@ executable aoc2024
     build-depends:
         base ^>=4.13.0.0,
         containers,
-        filepath
+        filepath,
+        regex-base,
+        regex-posix
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -99,7 +105,8 @@ test-suite aoc2024-test
     main-is: Spec.hs
     other-modules:
         Day01Spec,
-        Day02Spec
+        Day02Spec,
+        Day03Spec
     build-depends:
         base ^>=4.13.0.0,
         hspec,
