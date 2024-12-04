@@ -44,6 +44,6 @@ part2 input = do
 
 day03 :: IO ()
 day03 = do
-    input <- unlines <$> getInput "data/day03-input.txt"
+    input <- getInput "data/day03-input.txt"
     print $ part1 input
     print $ part2 input
