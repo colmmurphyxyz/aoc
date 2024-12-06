@@ -1,7 +1,5 @@
 module Util (getInput, getInputLines) where
 
-import System.FilePath
-
 getInput :: FilePath -> IO String
 getInput = readFile 
 
