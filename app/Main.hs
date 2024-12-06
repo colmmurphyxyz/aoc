@@ -5,6 +5,7 @@ import Text.Read (readMaybe)
 import Day01 (day01)
 import Day02 (day02)
 import Day03 (day03)
+import Day04 (day04)
 
 main :: IO ()
 main = do
@@ -16,4 +17,5 @@ main = do
             1 -> day01
             2 -> day02
             3 -> day03
+            4 -> day04
             _ -> error "Invalid input arguments"

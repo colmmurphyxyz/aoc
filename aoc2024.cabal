@@ -59,13 +59,15 @@ library
         Util,
         Day01,
         Day02,
-        Day03
+        Day03,
+        Day04
     build-depends:
         base ^>=4.13.0.0,
         containers,
         filepath,
         regex-base,
-        regex-posix
+        regex-posix,
+        KMP
     default-language: Haskell2010
 
 executable aoc2024
@@ -80,7 +82,8 @@ executable aoc2024
         Util,
         Day01,
         Day02,
-        Day03
+        Day03,
+        Day04
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -91,7 +94,8 @@ executable aoc2024
         containers,
         filepath,
         regex-base,
-        regex-posix
+        regex-posix,
+        KMP
 
     -- Directories containing source files.
     hs-source-dirs:   app
