@@ -60,7 +60,8 @@ library
         Day01,
         Day02,
         Day03,
-        Day04
+        Day04,
+        Day05
     build-depends:
         base ^>=4.13.0.0,
         containers,
@@ -83,7 +84,8 @@ executable aoc2024
         Day01,
         Day02,
         Day03,
-        Day04
+        Day04,
+        Day05
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -110,7 +112,9 @@ test-suite aoc2024-test
     other-modules:
         Day01Spec,
         Day02Spec,
-        Day03Spec
+        Day03Spec,
+        Day04Spec,
+        Day05Spec
     build-depends:
         base ^>=4.13.0.0,
         hspec,

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -Wno-unused-top-binds #-}
+{-# OPTIONS_GHC -Wno-unused-imports #-}
+{-# OPTIONS_GHC -Wno-unused-local-binds #-}
 module Day04 (day04) where
 
 import Data.List (tails, isPrefixOf, transpose, sort)
@@ -33,7 +36,7 @@ searchGrid grid = length $ filter checkCellX (Map.keys grid)
 
 
 part1 :: [String] -> Int
-part1 input = 0
+part1 _ = 0
 
 day04 :: IO ()
 day04 = do
