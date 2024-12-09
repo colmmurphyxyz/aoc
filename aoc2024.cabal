@@ -64,14 +64,14 @@ library
         Day05,
         Day06,
         Day07,
-        Day08
+        Day08,
+        Day09
     build-depends:
         base ^>=4.13.0.0,
         containers,
         filepath,
         regex-base,
-        regex-posix,
-        KMP
+        regex-posix
     default-language: Haskell2010
 
 executable aoc2024
@@ -91,7 +91,8 @@ executable aoc2024
         Day05,
         Day06,
         Day07,
-        Day08
+        Day08,
+        Day09
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
