@@ -16,51 +16,58 @@ repeatString s n
     | n <= 0 = ""
     | otherwise = s ++ repeatString s (n - 1)
 
-parseInput :: String -> String
-parseInput = aux 0
+repeatN :: Int -> a -> [a]
+repeatN n x
+    | n <= 0 = []
+    | otherwise = x : repeatN (n - 1) x
+
+parseInput :: String -> [Int]
+parseInput s = 
+    let nums = map digitToInt s
+    in aux 0 nums
     where
-        aux :: Int -> String -> String
-        aux _ "" = ""
-        aux _ [_] = error ""
+        aux :: Int -> [Int] -> [Int]
+        aux _ [] = []
+        aux _ [_] = error "Input length must be even"
         aux currentBlockId (blockSize:freeSpace:xs) =
-            repeatString (show currentBlockId) (digitToInt blockSize)
-            ++ repeatChar '.' (digitToInt freeSpace)
+            repeatN blockSize currentBlockId
+            ++ repeatN freeSpace (-1)
             ++ aux (currentBlockId + 1) xs
 
-toArray :: String -> Array Int Char
+toArray :: [a] -> Array Int a
 toArray xs = A.array (0, lastIdx) $ zip [0 .. lastIdx] xs
     where
         lastIdx = length xs - 1
 
-firstEmptyBlockIdx :: Array Int Char -> Int
+firstEmptyBlockIdx :: Array Int Int -> Int
 firstEmptyBlockIdx arr = go 0 (A.elems arr)
     where
         go idx (x:xs)
-            | x == '.' = idx
+            | x == -1 = idx
             | otherwise = go (idx + 1) xs
         go _ [] = error "No empty block found"
 
-lastNonEmptyBlockIdx :: Array Int Char -> Int
+lastNonEmptyBlockIdx :: Array Int Int -> Int
 lastNonEmptyBlockIdx arr = go (snd (A.bounds arr))
     where
         go (-1) = error "No non-empty block found"
         go idx
-            | arr ! idx /= '.' = idx
+            | arr ! idx /= -1 = idx
             | otherwise = go (idx - 1)
 
-isContiguous :: Array Int Char -> Bool
+isContiguous :: Array Int Int -> Bool
 isContiguous xs =
     let
-        (lhs, rhs) = span (/= '.') $ A.elems xs
+        (lhs, rhs) = span (/= -1) $ A.elems xs
     in
-    notElem '.' lhs && all (== '.') rhs
+    notElem (-1) lhs && all (== -1) rhs
 
-makeContiguous :: Array Int Char -> Array Int Char
+makeContiguous :: Array Int Int -> Array Int Int
 makeContiguous arr
     | isContiguous arr = arr
     | otherwise = makeContiguous $ swapOnce arr
 
-swapOnce :: Array Int Char -> Array Int Char
+swapOnce :: Array Int Int -> Array Int Int
 swapOnce arr =
     let
         l = firstEmptyBlockIdx arr
@@ -68,9 +75,9 @@ swapOnce arr =
     in
         arr // [(l, arr ! r), (r, arr ! l)]
 
-filesystemChecksum :: String -> Int
-filesystemChecksum s =
-    let nums = map digitToInt s
+filesystemChecksum :: [Int] -> Int
+filesystemChecksum nums =
+    let
         size = length nums
     in
     sum $ zipWith (*) [0 .. size - 1] nums
@@ -80,16 +87,10 @@ part1 inp =
     let
         filesystem = toArray $ parseInput inp
     in
-    filesystemChecksum . takeWhile (/= '.') . A.elems $ makeContiguous filesystem
+    filesystemChecksum . takeWhile (/= -1) . A.elems $ makeContiguous filesystem
 
+-- FIXME file IDs will not always be one digit long. Fix this!
 day09 :: IO ()
 day09 = do
     input <- (++ "0") <$> getInput "data/day09-input.txt"
-    let arr = toArray $ parseInput input
-    print "created array"
-    let contiguousArr = makeContiguous arr
-    print "is contiguous"
-    print $ A.elems contiguousArr
-    let checksum = filesystemChecksum . takeWhile (/= '.') $ A.elems contiguousArr
-    print checksum
-    -- print $ part1 input
+    print $ part1 input
