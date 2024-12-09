@@ -1,4 +1,4 @@
-module Day09 where
+module Day09 (day09, part1) where
 
 import Data.Char (digitToInt)
 import GHC.Arr (Array, (!), (//))
@@ -6,15 +6,6 @@ import qualified GHC.Arr as A
 
 import Util (getInput)
 
-repeatChar :: Char -> Int -> String
-repeatChar c n
-    | n <= 0 = ""
-    | otherwise = c : repeatChar c (n - 1)
-
-repeatString :: String -> Int -> String
-repeatString s n
-    | n <= 0 = ""
-    | otherwise = s ++ repeatString s (n - 1)
 
 repeatN :: Int -> a -> [a]
 repeatN n x
@@ -39,6 +30,7 @@ toArray xs = A.array (0, lastIdx) $ zip [0 .. lastIdx] xs
     where
         lastIdx = length xs - 1
 
+
 firstEmptyBlockIdx :: Array Int Int -> Int
 firstEmptyBlockIdx arr = go 0 (A.elems arr)
     where
@@ -46,6 +38,7 @@ firstEmptyBlockIdx arr = go 0 (A.elems arr)
             | x == -1 = idx
             | otherwise = go (idx + 1) xs
         go _ [] = error "No empty block found"
+
 
 lastNonEmptyBlockIdx :: Array Int Int -> Int
 lastNonEmptyBlockIdx arr = go (snd (A.bounds arr))
@@ -55,6 +48,7 @@ lastNonEmptyBlockIdx arr = go (snd (A.bounds arr))
             | arr ! idx /= -1 = idx
             | otherwise = go (idx - 1)
 
+
 isContiguous :: Array Int Int -> Bool
 isContiguous xs =
     let
@@ -62,10 +56,12 @@ isContiguous xs =
     in
     notElem (-1) lhs && all (== -1) rhs
 
+
 makeContiguous :: Array Int Int -> Array Int Int
 makeContiguous arr
     | isContiguous arr = arr
     | otherwise = makeContiguous $ swapOnce arr
+
 
 swapOnce :: Array Int Int -> Array Int Int
 swapOnce arr =
@@ -75,12 +71,14 @@ swapOnce arr =
     in
         arr // [(l, arr ! r), (r, arr ! l)]
 
+
 filesystemChecksum :: [Int] -> Int
 filesystemChecksum nums =
     let
         size = length nums
     in
     sum $ zipWith (*) [0 .. size - 1] nums
+
 
 part1 :: String -> Int
 part1 inp = 
@@ -89,7 +87,7 @@ part1 inp =
     in
     filesystemChecksum . takeWhile (/= -1) . A.elems $ makeContiguous filesystem
 
--- FIXME file IDs will not always be one digit long. Fix this!
+
 day09 :: IO ()
 day09 = do
     input <- (++ "0") <$> getInput "data/day09-input.txt"
