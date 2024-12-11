@@ -11,6 +11,7 @@ import Day06 (day06)
 import Day07 (day07)
 import Day08 (day08)
 import Day09 (day09)
+import Day11 (day11)
 
 main :: IO ()
 main = do
@@ -28,4 +29,5 @@ main = do
             7 -> day07
             8 -> day08
             9 -> day09
+            11 -> day11
             _ -> error "Invalid input arguments"
