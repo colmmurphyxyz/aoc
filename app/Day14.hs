@@ -70,7 +70,7 @@ part1 guards = safetyFactor $ simulations guards !! 100
 
 part2 :: [Guard] -> String
 part2 guards = 
-    let diagrams = map showGuards $ take 200 $ simulations guards
+    let diagrams = map showGuards $ take 10000 $ simulations guards
         labelledDiagrams = zip diagrams ([0 ..] :: [Int])
     in unlines $ map (\(d, i) -> "Iteration " ++ show i ++ "\n" ++ d) labelledDiagrams
 
