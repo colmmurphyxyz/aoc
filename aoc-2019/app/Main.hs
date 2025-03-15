@@ -4,6 +4,7 @@ import System.Exit (exitWith, ExitCode( ExitFailure ))
 import Text.Read (readMaybe)
 
 import Day01 (day01)
+import Day02 (day02)
 
 usage :: IO ()
 usage = do
@@ -19,7 +20,7 @@ main = do
         Nothing -> usage
         Just n -> case n of
             1 -> day01
-            2 -> error "not implemented"
+            2 -> day02
             3 -> error "not implemented"
             4 -> error "not implemented"
             5 -> error "not implemented"
