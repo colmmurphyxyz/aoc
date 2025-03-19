@@ -5,6 +5,7 @@ import Text.Read (readMaybe)
 
 import Day01 (day01)
 import Day02 (day02)
+import Day03 (day03)
 
 usage :: IO ()
 usage = do
@@ -21,7 +22,7 @@ main = do
         Just n -> case n of
             1 -> day01
             2 -> day02
-            3 -> error "not implemented"
+            3 -> day03
             4 -> error "not implemented"
             5 -> error "not implemented"
             6 -> error "not implemented"

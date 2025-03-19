@@ -65,13 +65,14 @@ executable aoc2019
         Util,
         Day01,
         Day02,
+        Day03,
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.13.0.0,
+        base ^>=4.16.4.0,
         array ^>=0.5.4.0,
         containers,
         filepath,
