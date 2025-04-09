@@ -66,6 +66,7 @@ executable aoc2019
         Day01,
         Day02,
         Day03,
+        Day04,
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -74,6 +75,7 @@ executable aoc2019
     build-depends:
         base ^>=4.16.4.0,
         array ^>=0.5.4.0,
+        split ^>=0.2.5,
         containers,
         filepath,
         regex-base,
