@@ -1,0 +1,5 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p cabal-install
+#! nix-shell -i haskellPackages.ghc
+
+cabal run -v0 aoc2020 -- "$1"
