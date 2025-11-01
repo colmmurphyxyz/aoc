@@ -24,11 +24,13 @@
           name = "AOC 2020 dev shell";
 
           buildInputs = with haskellPackages; [
-            ghc
             cabal-install
+            ghc
             haskell-language-server
             hlint
             ormolu
+            regex-base
+            regex-posix
           ];
 
           shellHook = ''
