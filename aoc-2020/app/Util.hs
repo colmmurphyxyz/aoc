@@ -1,10 +1,10 @@
 module Util (getInput, getInputLines, nums) where
 
-import Text.Regex.Posix ((=~))
 import Text.Regex.Base (getAllTextMatches)
+import Text.Regex.Posix ((=~))
 
 getInput :: FilePath -> IO String
-getInput = readFile 
+getInput = readFile
 
 getInputLines :: FilePath -> IO [String]
 getInputLines path = lines <$> readFile path
