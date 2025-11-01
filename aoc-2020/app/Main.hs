@@ -5,6 +5,7 @@ import System.Exit (exitWith, ExitCode( ExitFailure ))
 import Text.Read (readMaybe)
 
 import Day01 (day01)
+import Day02 (day02)
 
 usage :: IO ()
 usage = do
@@ -20,4 +21,5 @@ main = do
         Nothing -> usage
         Just n -> case n of
             1 -> day01
+            2 -> day02
             _ -> usage
