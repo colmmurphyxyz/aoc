@@ -1,5 +1,7 @@
 #!/usr/bin/env nix-shell
+#! nix-shell -i bash --pure
 #! nix-shell -p cabal-install
-#! nix-shell -i haskellPackages.ghc
+#! nix-shell -p haskell.compiler.native-bignum.ghc9103
+#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/4d26de593cda6edcde988f00d6bb2206934b89d0.tar.gz
 
 cabal run -v0 aoc2020 -- "$1"
