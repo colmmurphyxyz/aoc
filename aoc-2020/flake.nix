@@ -29,6 +29,7 @@
             haskell-language-server
             hlint
             ormolu
+            parsec_3_1_18_0
             regex-base
             regex-posix
           ];
