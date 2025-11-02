@@ -1,7 +1,6 @@
 module Day03 (day03) where
 
 import Data.Array (Array, bounds, (!))
-import Debug.Trace (trace)
 import Util (to2DArray)
 
 data Object = Tree | Open deriving (Eq)
