@@ -63,6 +63,7 @@ executable aoc2020
     other-modules:
         Day01,
         Day02,
+        Day03,
         Geometry,
         Util
 

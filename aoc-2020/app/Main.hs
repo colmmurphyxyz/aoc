@@ -3,6 +3,7 @@ module Main (main) where
 import Data.Maybe (listToMaybe)
 import Day01 (day01)
 import Day02 (day02)
+import Day03 (day03)
 import System.Environment (getArgs)
 import System.Exit (ExitCode (ExitFailure), exitWith)
 import Text.Read (readMaybe)
@@ -22,4 +23,5 @@ main = do
     Just n -> case n of
       1 -> day01
       2 -> day02
+      3 -> day03
       _ -> usage
