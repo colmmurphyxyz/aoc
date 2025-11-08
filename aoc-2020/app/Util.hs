@@ -1,4 +1,4 @@
-module Util (getInput, getInputLines, nums, to2DArray) where
+module Util (getInput, getInputLines, nums, count, splitOn, to2DArray) where
 
 import Data.Array (Array, array)
 import Text.Regex.Base (getAllTextMatches)
@@ -14,6 +14,16 @@ getInputLines path = lines <$> readFile path
 nums :: String -> [Int]
 nums input = map read (getAllTextMatches (input =~ "-?[0-9]+"))
 
+count :: (a -> Bool) -> [a] -> Int
+count predicate xs = length $ filter predicate xs
+
+splitOn :: (Eq a) => a -> [a] -> [[a]]
+splitOn _ [] = []
+splitOn sep xs =
+  case break (== sep) xs of
+    (ys, []) -> [ys]
+    (ys, (_ : zs)) -> [ys] ++ splitOn sep (zs)
+
 to2DArray :: [[a]] -> Array (Int, Int) a
 to2DArray xss =
   array
@@ -24,4 +34,4 @@ to2DArray xss =
     ]
   where
     rows = length xss
-    cols = if null xss then 0 else length (head xss)
+    cols = if null xss then 0 else length (take 1 $ xss)
