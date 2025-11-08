@@ -64,6 +64,7 @@ executable aoc2020
         Day01,
         Day02,
         Day03,
+        Day04,
         Geometry,
         Util
 
@@ -74,6 +75,7 @@ executable aoc2020
     build-depends:
         array,
         base ^>=4.20.2.0,
+        containers ^>=0.8,
         parsec ^>=3.1.18.0,
         regex-base,
         regex-posix

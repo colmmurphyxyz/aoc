@@ -25,6 +25,7 @@
 
           buildInputs = with haskellPackages; [
             cabal-install
+            containers_0_8
             ghc
             haskell-language-server
             hlint
