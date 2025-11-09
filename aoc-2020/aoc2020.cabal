@@ -66,6 +66,7 @@ executable aoc2020
         Day03,
         Day04,
         Day05,
+        Day06,
         Geometry,
         Util
 
