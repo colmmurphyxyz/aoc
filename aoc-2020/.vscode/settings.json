@@ -2,7 +2,9 @@
     "git.openRepositoryInParentFolders": "always",
     "[haskell]": {
         "editor.defaultFormatter": "haskell.haskell",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.indentSize": 2
     },
     "haskell.formattingProvider": "ormolu"
 }
