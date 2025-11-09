@@ -5,6 +5,7 @@ import Day01 (day01)
 import Day02 (day02)
 import Day03 (day03)
 import Day04 (day04)
+import Day05 (day05)
 import System.Environment (getArgs)
 import System.Exit (ExitCode (ExitFailure), exitWith)
 import Text.Read (readMaybe)
@@ -26,4 +27,5 @@ main = do
       2 -> day02
       3 -> day03
       4 -> day04
+      5 -> day05
       _ -> usage
