@@ -3,8 +3,8 @@ package xyz.colmmurphy.aoc
 import xyz.colmmurphy.aoc.util.readInput
 
 private fun parseInput(input: List<String>): List<List<Long>> {
-    val parse: (String) -> List<Long> = {
-        it.toCharArray().map { it.digitToInt().toLong() }
+    val parse: (String) -> List<Long> = { line ->
+        line.toCharArray().map { it.digitToInt().toLong() }
     }
     return input.map(parse)
 }
@@ -17,7 +17,7 @@ private fun largest2DigitNumber(nums: List<Long>): Long {
         if (nums[i] <= tens) {
             continue
         }
-        var candidate = nums[i]
+        val candidate = nums[i]
         for (j in i + 1 until nums.size) {
             if (candidate * 10L + nums[j] > current) {
                 current = candidate * 10 + nums[j]
