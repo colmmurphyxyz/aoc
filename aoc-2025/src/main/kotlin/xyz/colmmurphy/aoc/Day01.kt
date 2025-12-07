@@ -23,8 +23,8 @@ private fun part2(input: List<String>): Int {
     var curr = 50
     var zeros = 0
     for (num in nums) {
-        var next = curr + num
-        val range = if (next < curr) next .. (curr - 1) else (curr + 1) .. next
+        val next = curr + num
+        val range = if (next < curr) next..<curr else (curr + 1) .. next
         for (i in range) {
             if (i % 100 == 0) {
                 zeros++
