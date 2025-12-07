@@ -5,7 +5,11 @@ import arrow.core.Some
 import arrow.core.none
 
 open class Grid<T> {
-    val data: MutableList<MutableList<T>>
+    private val data: MutableList<MutableList<T>>
+
+    fun getData(): List<List<T>> {
+        return data
+    }
 
     val height: Int
         get() = data.size
@@ -82,7 +86,7 @@ open class Grid<T> {
     }
 
     open fun isInGrid(rowIdx: Int, colIdx: Int): Boolean {
-        return (rowIdx >= 0 && rowIdx < height && colIdx >= 0 && colIdx < width)
+        return (rowIdx in 0..<height && colIdx in 0..<width)
     }
 
     open fun isInGrid(point: Pair<Int, Int>): Boolean = isInGrid(point.first, point.second)
@@ -179,7 +183,7 @@ open class Grid<T> {
         if (other == null) {
             return false
         }
-        if (other !is Grid<T>) {
+        if (other !is Grid<*>) {
             return false
         }
         return other.hashCode() == this.hashCode()
