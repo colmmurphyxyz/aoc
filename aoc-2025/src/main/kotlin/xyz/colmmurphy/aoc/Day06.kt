@@ -48,7 +48,7 @@ private fun part2(input: List<String>): Long {
         }
     }
     // search for indices 'i' where all line[i] is a space character
-    var breaks = mutableListOf<Int>(-1)
+    val breaks = mutableListOf(-1)
     for (i in 0 until maxLen) {
         if (worksheet.all { it[i].isWhitespace() }) {
             breaks.add(i)
@@ -56,7 +56,7 @@ private fun part2(input: List<String>): Long {
     }
     breaks.add(maxLen)
 
-    var columnRanges = mutableListOf<IntRange>()
+    val columnRanges = mutableListOf<IntRange>()
     for (i in 0 until breaks.lastIndex) {
         columnRanges.add(breaks[i] + 1 until breaks[i + 1])
     }
@@ -68,7 +68,7 @@ private fun part2(input: List<String>): Long {
     var ans = 0L
     for (grid in worksheetProblems) {
         val operator = if (grid.getRow(grid.height - 1).contains('+')) Operation.ADDITION else Operation.MULTIPLICATION
-        var operands = mutableListOf<Long>()
+        val operands = mutableListOf<Long>()
         for (i in grid.width - 1 downTo 0) {
             operands.add(
                 grid

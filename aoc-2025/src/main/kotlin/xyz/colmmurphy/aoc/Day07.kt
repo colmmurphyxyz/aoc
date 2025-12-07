@@ -10,7 +10,7 @@ private fun part1(input: List<String>): Int {
     val grid = Grid.fromStringList(input)
     val start = grid.firstOccurrenceOf('S').getOrNull()!!
 
-    var seen = mutableSetOf<Pair<Int, Int>>()
+    val seen = mutableSetOf<Pair<Int, Int>>()
     fun tachyonTraversal(curr: Pair<Int, Int>): Int {
         if (!grid.isInGrid(curr)) {
             return 0

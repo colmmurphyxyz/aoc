@@ -6,15 +6,15 @@ import xyz.colmmurphy.aoc.util.readInput
 
 private fun allReachablePoints(grid: Grid<Char>): List<Pair<Int, Int>> {
     return grid.allPoints()
-        .filter {
-            grid.get(it) == '@' && grid.getAdjacent(it.first, it.second).mapNotNull(Option<Char>::getOrNull)
+        .filter { point ->
+            grid.get(point) == '@' && grid.getAdjacent(point.first, point.second).mapNotNull(Option<Char>::getOrNull)
                 .filter { it == '@' }.size < 4
         }
 }
 
 private fun part1(input: List<String>): Int {
     return allReachablePoints(
-        Grid<Char>(input.map { it.toCharArray().toList() } )
+        Grid(input.map { it.toCharArray().toList() } )
     ).size
 }
 
@@ -23,7 +23,7 @@ private fun part2(input: List<String>): Int {
     val grid = Grid(input.map { it.toCharArray().toList() })
     while (true) {
         val toRemove = allReachablePoints(grid)
-        if (toRemove.size == 0) {
+        if (toRemove.isEmpty()) {
             return removed
         }
         removed += toRemove.size

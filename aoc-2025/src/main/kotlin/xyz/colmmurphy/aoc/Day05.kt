@@ -14,7 +14,7 @@ private fun part1(input: List<String>): Int {
 
     fun isFresh(id: Long): Boolean {
         for ((lhs, rhs) in fresh) {
-            if (id >= lhs && id <= rhs) {
+            if (id in lhs..rhs) {
                 return true
             }
         }
@@ -45,7 +45,7 @@ private fun part2(input: List<String>): BigInteger {
             }
         }.toMutableList()
 
-    val merged = mutableListOf<Pair<Long, Long>>(ranges[0])
+    val merged = mutableListOf(ranges[0])
     for (i in 1 until ranges.size) {
         val last = merged.last()
         val curr = ranges[i]
