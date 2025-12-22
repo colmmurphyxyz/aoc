@@ -25,3 +25,18 @@ fun Any?.println() = println(this)
 fun String.commaSeparatedNums(): List<Int> {
     return this.split(",").map(String::toInt)
 }
+
+fun <T>splitOn(xs: List<T>, delimiter : T): List<List<T>> {
+    val ret = mutableListOf<List<T>>()
+    var curr = mutableListOf<T>()
+    for (x in xs) {
+        if (x == delimiter) {
+            ret += curr
+            curr = mutableListOf()
+            continue
+        }
+        curr += x
+    }
+    ret += curr
+    return ret
+}
