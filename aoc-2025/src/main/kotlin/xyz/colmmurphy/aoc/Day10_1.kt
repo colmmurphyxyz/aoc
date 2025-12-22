@@ -106,11 +106,6 @@ private fun part1(input: List<String>): Int {
     return minimumMoves
 }
 
-private fun part2(input: List<String>): Long {
-
-    return -1L
-}
-
 fun main() {
     val testInput = readInput("Day10_test")
     val input = readInput("Day10")
@@ -118,9 +113,6 @@ fun main() {
     measureTimeMillis {
         println("Part 1 Test: ${part1(testInput)}")
         println("Part 1: ${part1(input)}")
-//
-//        println("Part 2 Test: ${part2(testInput)}")
-//        println("Part 2: ${part2(input)}")
     }.let {
         println("Took $it ms")
     }
