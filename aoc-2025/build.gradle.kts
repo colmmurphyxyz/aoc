@@ -14,6 +14,8 @@ dependencies {
     implementation("io.arrow-kt:arrow-fx-coroutines:2.2.0")
     implementation("io.arrow-kt:arrow-collectors:2.2.0")
 
+    implementation("org.choco-solver:choco-solver:4.10.18")
+
     testImplementation(kotlin("test"))
 }
 
