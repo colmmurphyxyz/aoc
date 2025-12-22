@@ -1,5 +1,8 @@
 package xyz.colmmurphy.aoc.util.graph
 
+import arrow.core.Option
+import arrow.core.firstOrNone
+
 class SimpleAdjacencyListGraph<T, W : Comparable<W>> : Graph<T, W> {
     private val adjacencyMap = mutableMapOf<Vertex<T>, MutableSet<Edge<T, W>>>()
     private val edges = mutableSetOf<Edge<T, W>>()
@@ -24,6 +27,10 @@ class SimpleAdjacencyListGraph<T, W : Comparable<W>> : Graph<T, W> {
         adjacencyMap.remove(v)
     }
 
+    override fun getVertex(data: T): Option<Vertex<T>> {
+        return adjacencyMap.keys.firstOrNone { it.data == data }
+    }
+
     override fun addEdge(e: Edge<T, W>) {
         adjacencyMap[e.source]?.add(e)
         adjacencyMap[e.destination]?.add(e)
@@ -38,6 +45,10 @@ class SimpleAdjacencyListGraph<T, W : Comparable<W>> : Graph<T, W> {
         adjacencyMap[e.source]?.remove(e)
         adjacencyMap[e.destination]?.remove(e)
         edges.remove(e)
+    }
+
+    override fun adjacent(v: Vertex<T>): List<Vertex<T>> {
+        return adjacencyMap[v]?.map { it.opposite(v) } ?: emptyList()
     }
 
     fun getComponents(): List<List<Vertex<T>>> {
