@@ -6,6 +6,7 @@ authors = ["Colm Murphy <colmmurphy016@gmail.com>"]
 
 [dependencies]
 md5 = "0.8.0"
+rayon = "1.11.0"
 
 [profile.release]
 codegen-units = 1
