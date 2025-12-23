@@ -5,6 +5,7 @@ edition = "2024"
 authors = ["Colm Murphy <colmmurphy016@gmail.com>"]
 
 [dependencies]
+md5 = "0.8.0"
 
 [profile.release]
 codegen-units = 1
