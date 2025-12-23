@@ -20,11 +20,11 @@ fn required_ribbon(length: i64, width: i64, height: i64) -> i64 {
 pub fn day02_a() -> i64 {
     read_input_lines("Day02")
         .into_iter()
-        .map(|x| x
-            .split_terminator('x')
-            .map(|n| n.parse::<i64>().unwrap())
-            .collect::<Vec<i64>>()
-        )
+        .map(|x| {
+            x.split_terminator('x')
+                .map(|n| n.parse::<i64>().unwrap())
+                .collect::<Vec<i64>>()
+        })
         .map(|v| required_paper(v[0], v[1], v[2]))
         .sum()
 }
@@ -32,11 +32,11 @@ pub fn day02_a() -> i64 {
 pub fn day02_b() -> i64 {
     read_input_lines("Day02")
         .into_iter()
-        .map(|x| x
-            .split_terminator('x')
-            .map(|n| n.parse::<i64>().unwrap())
-            .collect::<Vec<i64>>()
-        )
+        .map(|x| {
+            x.split_terminator('x')
+                .map(|n| n.parse::<i64>().unwrap())
+                .collect::<Vec<i64>>()
+        })
         .map(|v| required_ribbon(v[0], v[1], v[2]))
         .sum()
 }
