@@ -5,8 +5,10 @@ edition = "2024"
 authors = ["Colm Murphy <colmmurphy016@gmail.com>"]
 
 [dependencies]
+fancy-regex = "0.17.0"
 md5 = "0.8.0"
 rayon = "1.11.0"
+regex = "1.12.2"
 
 [profile.release]
 codegen-units = 1

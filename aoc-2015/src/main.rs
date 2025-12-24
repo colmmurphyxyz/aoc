@@ -2,12 +2,14 @@ use day_01::{day01_a, day01_b};
 use day_02::{day02_a, day02_b};
 use day_03::{day03_a, day03_b};
 use day_04::{day04_a, day04_b};
+use day_05::{day05_a, day05_b};
 use std::time::Instant;
 
 pub mod day_01;
 pub mod day_02;
 pub mod day_03;
 pub mod day_04;
+pub mod day_05;
 pub mod util;
 
 fn run_single_day<F>(name: &str, func: F)
@@ -35,4 +37,6 @@ fn main() {
     run_single_day("Day  3, part 2", day03_b);
     run_single_day("Day  4, part 1", day04_a);
     run_single_day("Day  4, part 2", day04_b);
+    run_single_day("Day  5, part 1", day05_a);
+    run_single_day("Day  5, part 2", day05_b);
 }
