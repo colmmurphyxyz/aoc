@@ -5,6 +5,7 @@ use day_03::{day03_a, day03_b};
 use day_04::{day04_a, day04_b};
 use day_05::{day05_a, day05_b};
 use day_06::{day06_a, day06_b};
+use day_07::{day07_a, day07_b};
 use std::time::Instant;
 
 pub mod day_01;
@@ -13,6 +14,7 @@ pub mod day_03;
 pub mod day_04;
 pub mod day_05;
 pub mod day_06;
+pub mod day_07;
 pub mod util;
 
 fn run_single_day<F>(name: &str, func: F)
@@ -38,9 +40,15 @@ struct Cli {
     day: usize,
 }
 
-static DAYS: [fn() -> i64; 12] = [
+fn stub() -> i64 {
+    -1
+}
+
+static DAYS: [fn() -> i64; 50] = [
     day01_a, day01_b, day02_a, day02_b, day03_a, day03_b, day04_a, day04_b, day05_a, day05_b,
-    day06_a, day06_b,
+    day06_a, day06_b, day07_a, day07_b, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
+    stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
+    stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
 ];
 
 fn main() {
