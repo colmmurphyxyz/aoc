@@ -1,3 +1,4 @@
+use clap::Parser;
 use day_01::{day01_a, day01_b};
 use day_02::{day02_a, day02_b};
 use day_03::{day03_a, day03_b};
@@ -28,15 +29,29 @@ where
     );
 }
 
+#[derive(Parser, Debug)]
+#[command(version, about="...", long_about = None)]
+struct Cli {
+    #[arg(short, long, default_value_t = 0)]
+    day: usize,
+}
+
+static DAYS: [fn() -> i64; 10] = [
+    day01_a, day01_b, day02_a, day02_b, day03_a, day03_b, day04_a, day04_b, day05_a, day05_b,
+];
+
 fn main() {
-    run_single_day("Day  1, part 1", day01_a);
-    run_single_day("Day  1, part 2", day01_b);
-    run_single_day("Day  2, part 1", day02_a);
-    run_single_day("Day  2, part 2", day02_b);
-    run_single_day("Day  3, part 1", day03_a);
-    run_single_day("Day  3, part 2", day03_b);
-    run_single_day("Day  4, part 1", day04_a);
-    run_single_day("Day  4, part 2", day04_b);
-    run_single_day("Day  5, part 1", day05_a);
-    run_single_day("Day  5, part 2", day05_b);
+    let day = Cli::parse().day;
+    if day < 1 || day > 25 {
+        for idx in 0..DAYS.len() {
+            let day_number = (idx / 2) + 1;
+            let part_number = (idx % 2) + 1;
+            let label = format!("Day {}, part {}", day_number, part_number);
+            run_single_day(&label, DAYS[idx]);
+        }
+    } else {
+        let idx = (day * 2) - 2;
+        run_single_day(&format!("Day {}, part 1", day), DAYS[idx]);
+        run_single_day(&format!("Day {}, part 2", day), DAYS[idx + 1]);
+    }
 }

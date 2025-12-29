@@ -5,6 +5,7 @@ edition = "2024"
 authors = ["Colm Murphy <colmmurphy016@gmail.com>"]
 
 [dependencies]
+clap = { version = "4.5.39", features = ["derive"] }
 fancy-regex = "0.17.0"
 md5 = "0.8.0"
 rayon = "1.11.0"
