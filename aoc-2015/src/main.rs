@@ -8,6 +8,7 @@ use day_06::{day06_a, day06_b};
 use day_07::{day07_a, day07_b};
 use day_08::{day08_a, day08_b};
 use day_09::{day09_a, day09_b};
+use day_10::{day10_a, day10_b};
 use std::time::Instant;
 
 pub mod day_01;
@@ -19,6 +20,7 @@ pub mod day_06;
 pub mod day_07;
 pub mod day_08;
 pub mod day_09;
+pub mod day_10;
 pub mod util;
 
 fn run_single_day<F>(name: &str, func: F)
@@ -50,7 +52,7 @@ fn stub() -> i64 {
 
 static DAYS: [fn() -> i64; 50] = [
     day01_a, day01_b, day02_a, day02_b, day03_a, day03_b, day04_a, day04_b, day05_a, day05_b,
-    day06_a, day06_b, day07_a, day07_b, day08_a, day08_b, day09_a, day09_b, stub, stub, stub, stub, stub, stub,
+    day06_a, day06_b, day07_a, day07_b, day08_a, day08_b, day09_a, day09_b, day10_a, day10_b, stub, stub, stub, stub,
     stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
     stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
 ];
