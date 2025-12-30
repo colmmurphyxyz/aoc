@@ -31,7 +31,7 @@ where
     let res = func();
     let runtime = Instant::now() - start;
     println!(
-        "{}. Result: {}\t\tTime: {} ms\t{} μs",
+        "{}. Result: {:<20} Time: {} ms\t{} μs",
         name,
         res,
         runtime.as_millis(),
@@ -52,9 +52,9 @@ fn stub() -> i64 {
 
 static DAYS: [fn() -> i64; 50] = [
     day01_a, day01_b, day02_a, day02_b, day03_a, day03_b, day04_a, day04_b, day05_a, day05_b,
-    day06_a, day06_b, day07_a, day07_b, day08_a, day08_b, day09_a, day09_b, day10_a, day10_b, stub, stub, stub, stub,
+    day06_a, day06_b, day07_a, day07_b, day08_a, day08_b, day09_a, day09_b, day10_a, day10_b, stub,
     stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
-    stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
+    stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
 ];
 
 fn main() {
@@ -63,12 +63,12 @@ fn main() {
         for idx in 0..DAYS.len() {
             let day_number = (idx / 2) + 1;
             let part_number = (idx % 2) + 1;
-            let label = format!("Day {}, part {}", day_number, part_number);
+            let label = format!("Day {:>2}, part {}", day_number, part_number);
             run_single_day(&label, DAYS[idx]);
         }
     } else {
         let idx = (day * 2) - 2;
-        run_single_day(&format!("Day {}, part 1", day), DAYS[idx]);
-        run_single_day(&format!("Day {}, part 2", day), DAYS[idx + 1]);
+        run_single_day(&format!("Day {:>2}, part 1", day), DAYS[idx]);
+        run_single_day(&format!("Day {:>2}, part 2", day), DAYS[idx + 1]);
     }
 }
