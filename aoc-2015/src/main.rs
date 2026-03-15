@@ -12,6 +12,7 @@ use day_10::{day10_a, day10_b};
 use day_11::{day11_a, day11_b};
 use day_12::{day12_a, day12_b};
 use day_13::{day13_a, day13_b};
+use day_14::{day14_a, day14_b};
 use std::time::Instant;
 
 pub mod day_01;
@@ -27,6 +28,7 @@ pub mod day_10;
 pub mod day_11;
 pub mod day_12;
 pub mod day_13;
+pub mod day_14;
 pub mod util;
 
 fn run_single_day<F>(name: &str, func: F)
@@ -59,13 +61,12 @@ fn stub() -> i64 {
 static DAYS: [fn() -> i64; 50] = [
     day01_a, day01_b, day02_a, day02_b, day03_a, day03_b, day04_a, day04_b, day05_a, day05_b,
     day06_a, day06_b, day07_a, day07_b, day08_a, day08_b, day09_a, day09_b, day10_a, day10_b, day11_a,
-    day11_b, day12_a, day12_b, day13_a, day13_b, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
+    day11_b, day12_a, day12_b, day13_a, day13_b, day14_a, day14_b, stub, stub, stub, stub, stub, stub, stub, stub, stub,
     stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub, stub,
 ];
 
 fn main() {
-    // let day = Cli::parse().day;
-    let day = 13;
+    let day = Cli::parse().day;
     if day < 1 || day > 25 {
         for idx in 0..DAYS.len() {
             let day_number = (idx / 2) + 1;
